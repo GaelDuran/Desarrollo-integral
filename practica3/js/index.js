@@ -1,0 +1,48 @@
+var normalx = 'hola';
+normalx = 10;
+normalx = true;
+var usuario = 20;
+console.log(normalx);
+var nombre = 'Juan';
+nombre = 'Juan Carlos';
+//nombre = null;
+console.log(nombre);
+var value;
+console.log(value);
+value = true;
+value = 10;
+value = 'hola';
+value = [];
+value = {};
+value = Math.random;
+value = null;
+value = undefined;
+console.log(value);
+var miValor;
+console.log("Tipo unknown", miValor);
+var value1 = miValor;
+var value2 = miValor;
+//let value3:boolean = miValor; // Error    
+// let value4:number = miValor; // Error
+var edad = 18;
+console.log('Edad', edad);
+console.log('Edad' + edad);
+var sueldo = 1.234;
+var total = Number('5678'); // Cast
+console.log('Sueldo', sueldo);
+console.log('Total', total);
+var personaje = "El chavo";
+var otroPersonaje = 'Don Ramon';
+var otroMas = "Profesor Jirafales y ".concat(personaje);
+console.log(otroMas);
+//const heroe:string = 'Deadpool's House';
+var heroe = "DeadPool\'s House";
+console.log(heroe);
+console.log(heroe.toUpperCase());
+var vengador;
+vengador = 'Dr. Strange';
+console.log(vengador.charAt(4));
+vengador = 150.55;
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));
