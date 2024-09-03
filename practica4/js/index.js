@@ -30,3 +30,15 @@ const person = {
 let { firstname, lastname, age } = person;
 console.log(firstname, lastname, age);
 // Usando TS Y desestructuracion de variables hay que generar una serie de fibonacci con hasta 100 veces
+// Graficar los resultados en pantalla
+function fibonacciSeries(n) {
+    const series = [0, 1];
+    for (let i = 2; i < n; i++) {
+        const nexNumber = series[i - 1] + series[i - 2];
+        series.push(nexNumber);
+    }
+    return series;
+}
+const n = 25;
+const fibonacci = fibonacciSeries(n);
+console.log(fibonacci);
