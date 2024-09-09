@@ -17,3 +17,31 @@ let [fruta1, fruta2] = frutas;
 console.log(fruta1, fruta2);
 let [frutaA, , , frutaB] = frutas;
 console.log(frutaA, fruta2);
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+    getEdad() {
+        return this.edad;
+    }
+    setEdad(edad) {
+        this.edad = edad;
+    }
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombre) {
+        this.nombre = nombre;
+    }
+}
+let personaje1 = new Persona('Alberto', 30);
+console.log(personaje1.edad);
+console.log(personaje1.nombre);
+//personaje1.edad = 'Hola';
+personaje1.edad = 25;
+console.log(personaje1.edad);
+let personaje2 = new Persona('Carlos', 19);
+personaje2.setEdad(20);
+console.log('Nombre:' + personaje2.getNombre());
+console.log('Edad:' + personaje2.getEdad());

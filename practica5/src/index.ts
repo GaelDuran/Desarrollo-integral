@@ -22,3 +22,48 @@ console.log(fruta1, fruta2);
 let [frutaA,,,frutaB] = frutas;
 console.log(frutaA, fruta2);
 
+class Persona {
+    nombre: string;
+    edad: number;
+    constructor(nombre: string, edad: number){
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    getEdad(): number{
+        return this.edad;
+    }
+
+    setEdad(edad: number): void {
+        this.edad = edad;
+    }
+
+    getNombre(): string{
+        return this.nombre
+    }
+
+    setNombre(nombre: string): void {
+        this.nombre = nombre;
+
+    }
+
+
+}
+
+let personaje1 = new Persona('Alberto', 30);
+console.log(personaje1.edad);
+console.log(personaje1.nombre);
+//personaje1.edad = 'Hola';
+personaje1.edad = 25;
+console.log(personaje1.edad);
+
+let personaje2 = new Persona('Carlos', 19);
+personaje2.setEdad(20);
+console.log('Nombre:' + personaje2.getNombre());
+console.log('Edad:' + personaje2.getEdad());
+
+
+
+
+
+
