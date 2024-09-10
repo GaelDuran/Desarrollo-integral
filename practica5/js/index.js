@@ -71,3 +71,64 @@ class UserAccount {
 }
 const usuarioInterface = new UserAccount('Imagine Dragons', 2);
 console.log(usuarioInterface.name, usuarioInterface.id);
+// Crear al menos 5 clases que van a usar en su proyecto final, 3 propiedades, getters y setters y al menos 1 metodo por clase o funcion, agregar un constructor
+/*
+class Productos {
+}
+
+class Usuario {
+}
+
+class Carrito {
+}
+
+class MetodoDePago {
+}
+
+*/
+//Herencia
+class Animal {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+    mover(distancia = 0) {
+        //template strings
+        console.log(`${this.nombre} se movio ${distancia}mts.`);
+    }
+    hacerSonido(sonido = 'Sin Sonido') {
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+let animal1 = new Animal('Grillo');
+animal1.mover(5);
+animal1.hacerSonido('Crii Crii');
+class Perro extends Animal {
+    constructor(nombre) {
+        super(nombre);
+    }
+    mover(distancia = 5) {
+        console.log('Caminando y corriendo');
+        super.mover(distancia);
+    }
+    hacerSonido(sonido = 'Guau') {
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+const perro1 = new Perro('Firulais');
+perro1.mover(10);
+perro1.hacerSonido("Guau Guau");
+class Serpiente extends Animal {
+    constructor(nombre) {
+        super(nombre);
+    }
+    mover(distancia = 1) {
+        console.log('Reptando');
+        super.mover(distancia);
+    }
+    hacerSonido(sonido = 'Siseo') {
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+const serpiente1 = new Serpiente('Cobra');
+serpiente1.mover(2);
+serpiente1.hacerSonido("Siseo");

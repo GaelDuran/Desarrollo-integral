@@ -125,5 +125,67 @@ class MetodoDePago {
 
 */
 
+//Herencia
+
+class Animal {
+    nombre: string;
+    constructor(nombre: string){
+        this.nombre = nombre;
+    }
+
+    mover(distancia: number = 0){
+        //template strings
+        console.log(`${this.nombre} se movio ${distancia}mts.`);
+    }
+
+    hacerSonido(sonido: string = 'Sin Sonido'){
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+
+let animal1 = new Animal('Grillo');
+animal1.mover(5);
+animal1.hacerSonido('Crii Crii');
+
+class Perro extends Animal {
+    constructor(nombre: string){
+        super(nombre);
+    }
+
+    mover(distancia: number = 5){
+        console.log('Caminando y corriendo');
+        super.mover(distancia);
+    }
+
+    hacerSonido(sonido = 'Guau'){
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+
+const perro1 = new Perro('Firulais');
+perro1.mover(10);
+perro1.hacerSonido("Guau Guau");
+
+class Serpiente extends Animal {
+    constructor(nombre: string){
+        super(nombre);
+    }
+
+    mover(distancia: number = 1){
+        console.log('Reptando');
+        super.mover(distancia);
+    }
+
+    hacerSonido(sonido = 'Siseo'){
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+
+const serpiente1 = new Serpiente('Cobra');
+serpiente1.mover(2);
+serpiente1.hacerSonido("Siseo");
+
+
+
 
 
