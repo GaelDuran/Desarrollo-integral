@@ -109,21 +109,258 @@ const usuarioInterface: User = new UserAccount('Imagine Dragons', 2);
 
 console.log(usuarioInterface.name, usuarioInterface.id);
 
-// Crear al menos 5 clases que van a usar en su proyecto final, 3 propiedades, getters y setters y al menos 1 metodo por clase o funcion, agregar un constructor
-/* 
-class Productos {
+/*Reto crear al menos 5 clases que van a usar en
+su proyecto, 3 propiedades, getters y setter y
+al menos 1 método por clase o función, agregar
+un constructor*/
+
+class Persona1 {
+    private nombre: string;
+    private apellidoPaterno: string;
+    private apellidoMaterno: string;
+    private edad: number;
+
+    constructor(nombre: string, apellidoPaterno: string, apellidoMaterno: string, edad: number) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+    }
+
+    getNombre(): string {
+        return this.nombre;
+    }
+
+    setNombre(nombre: string): void {
+        this.nombre = nombre;
+    }
+
+    getApellidoPaterno(): string {
+        return this.apellidoPaterno;
+    }
+
+    setApellidoPaterno(apellidoPaterno: string): void {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    getApellidoMaterno(): string {
+        return this.apellidoMaterno;
+    }
+
+    setApellidoMaterno(apellidoMaterno: string): void {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    getEdad(): number {
+        return this.edad;
+    }
+
+    setEdad(edad: number): void {
+        this.edad = edad;
+    }
+
+    obtenerDatos(): string {
+        return `${this.nombre} ${this.apellidoPaterno} ${this.apellidoMaterno}, ${this.edad} años`;
+    }
 }
 
-class Usuario {
+class Usuario extends Persona {
+    private correo: string;
+    private rol: string;
+
+    constructor(nombre: string, apellidoPaterno: string, apellidoMaterno: string, edad: number, correo: string, rol: string) {
+        super(nombre, apellidoPaterno, apellidoMaterno, edad);
+        this.correo = correo;
+        this.rol = rol;
+    }
+
+    getCorreo(): string {
+        return this.correo;
+    }
+
+    setCorreo(correo: string): void {
+        this.correo = correo;
+    }
+
+    getRol(): string {
+        return this.rol;
+    }
+
+    setRol(rol: string): void {
+        this.rol = rol;
+    }
+
+    mostrarUsuario(): string {
+        return `Usuario: ${this.getNombre()} (${this.getCorreo()}), Rol: ${this.rol}`;
+    }
+}
+
+
+
+class Producto {
+    private nombre: string;
+    private precio: number;
+    private stock: number;
+
+    constructor(nombre: string, precio: number, stock: number) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    getNombre(): string {
+        return this.nombre;
+    }
+
+    setNombre(nombre: string): void {
+        this.nombre = nombre;
+    }
+
+    getPrecio(): number {
+        return this.precio;
+    }
+
+    setPrecio(precio: number): void {
+        this.precio = precio;
+    }
+
+    getStock(): number {
+        return this.stock;
+    }
+
+    setStock(stock: number): void {
+        this.stock = stock;
+    }
+
+    mostrarProducto(): string {
+        return `Producto: ${this.nombre}, Precio: $${this.precio}, Stock: ${this.stock} unidades`;
+    }
 }
 
 class Carrito {
+    private productos: Producto[];
+    private total: number;
+
+    constructor() {
+        this.productos = [];
+        this.total = 0;
+    }
+
+    getProductos(): Producto[] {
+        return this.productos;
+    }
+
+    getTotal(): number {
+        return this.total;
+    }
+
+    agregarProducto(producto: Producto): void {
+        this.productos.push(producto);
+        this.total += producto.getPrecio();
+    }
+
+    mostrarTotal(): string {
+        return `Total del carrito: $${this.total}`;
+    }
 }
 
 class MetodoDePago {
+    private tipo: string;
+    private numero: string;
+    private vencimiento: string;
+
+    constructor(tipo: string, numero: string, vencimiento: string) {
+        this.tipo = tipo;
+        this.numero = numero;
+        this.vencimiento = vencimiento;
+    }
+
+    getTipo(): string {
+        return this.tipo;
+    }
+
+    setTipo(tipo: string): void {
+        this.tipo = tipo;
+    }
+
+    getNumero(): string {
+        return this.numero;
+    }
+
+    setNumero(numero: string): void {
+        this.numero = numero;
+    }
+
+    getVencimiento(): string {
+        return this.vencimiento;
+    }
+
+    setVencimiento(vencimiento: string): void {
+        this.vencimiento = vencimiento;
+    }
+
+    procesarPago(monto: number): string {
+        return `Procesando pago de $${monto} con ${this.tipo}`;
+    }
 }
 
-*/
+class Pedido {
+    private carrito: Carrito;
+    private metodoDePago: MetodoDePago;
+    private estado: string;
+
+    constructor(carrito: Carrito, metodoDePago: MetodoDePago) {
+        this.carrito = carrito;
+        this.metodoDePago = metodoDePago;
+        this.estado = "Pendiente";
+    }
+
+    getCarrito(): Carrito {
+        return this.carrito;
+    }
+
+    getMetodoDePago(): MetodoDePago {
+        return this.metodoDePago;
+    }
+
+    getEstado(): string {
+        return this.estado;
+    }
+
+    setEstado(estado: string): void {
+        this.estado = estado;
+    }
+
+    procesarPedido(): string {
+        if (this.carrito.getTotal() > 0) {
+            this.estado = "Procesado";
+            return `Pedido procesado. ${this.metodoDePago.procesarPago(this.carrito.getTotal())}`;
+        } else {
+            return "El carrito está vacío. No se puede procesar el pedido.";
+        }
+    }
+}
+
+let producto1 = new Producto("Laptop", 1500, 5);
+let producto2 = new Producto("Mouse", 20, 50);
+
+console.log(producto1.mostrarProducto());
+console.log(producto2.mostrarProducto());
+
+let usuario1 = new Usuario("Juan", "Pérez", "Gómez", 30, "juan.perez@example.com", "Cliente");
+console.log(usuario1.mostrarUsuario());
+
+let carrito1 = new Carrito();
+carrito1.agregarProducto(producto1);
+carrito1.agregarProducto(producto2);
+
+console.log(carrito1.mostrarTotal());
+
+let metodoDePago1 = new MetodoDePago("Tarjeta de Crédito", "123456789", "12/25");
+
+let pedido1 = new Pedido(carrito1, metodoDePago1);
+console.log(pedido1.procesarPedido()); 
+
 
 //Herencia
 

@@ -71,21 +71,183 @@ class UserAccount {
 }
 const usuarioInterface = new UserAccount('Imagine Dragons', 2);
 console.log(usuarioInterface.name, usuarioInterface.id);
-// Crear al menos 5 clases que van a usar en su proyecto final, 3 propiedades, getters y setters y al menos 1 metodo por clase o funcion, agregar un constructor
-/*
-class Productos {
+/*Reto crear al menos 5 clases que van a usar en
+su proyecto, 3 propiedades, getters y setter y
+al menos 1 método por clase o función, agregar
+un constructor*/
+class Persona1 {
+    constructor(nombre, apellidoPaterno, apellidoMaterno, edad) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+    }
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombre) {
+        this.nombre = nombre;
+    }
+    getApellidoPaterno() {
+        return this.apellidoPaterno;
+    }
+    setApellidoPaterno(apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+    getApellidoMaterno() {
+        return this.apellidoMaterno;
+    }
+    setApellidoMaterno(apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+    getEdad() {
+        return this.edad;
+    }
+    setEdad(edad) {
+        this.edad = edad;
+    }
+    obtenerDatos() {
+        return `${this.nombre} ${this.apellidoPaterno} ${this.apellidoMaterno}, ${this.edad} años`;
+    }
 }
-
-class Usuario {
+class Usuario extends Persona {
+    constructor(nombre, apellidoPaterno, apellidoMaterno, edad, correo, rol) {
+        super(nombre, apellidoPaterno, apellidoMaterno, edad);
+        this.correo = correo;
+        this.rol = rol;
+    }
+    getCorreo() {
+        return this.correo;
+    }
+    setCorreo(correo) {
+        this.correo = correo;
+    }
+    getRol() {
+        return this.rol;
+    }
+    setRol(rol) {
+        this.rol = rol;
+    }
+    mostrarUsuario() {
+        return `Usuario: ${this.getNombre()} (${this.getCorreo()}), Rol: ${this.rol}`;
+    }
 }
-
+class Producto {
+    constructor(nombre, precio, stock) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombre) {
+        this.nombre = nombre;
+    }
+    getPrecio() {
+        return this.precio;
+    }
+    setPrecio(precio) {
+        this.precio = precio;
+    }
+    getStock() {
+        return this.stock;
+    }
+    setStock(stock) {
+        this.stock = stock;
+    }
+    mostrarProducto() {
+        return `Producto: ${this.nombre}, Precio: $${this.precio}, Stock: ${this.stock} unidades`;
+    }
+}
 class Carrito {
+    constructor() {
+        this.productos = [];
+        this.total = 0;
+    }
+    getProductos() {
+        return this.productos;
+    }
+    getTotal() {
+        return this.total;
+    }
+    agregarProducto(producto) {
+        this.productos.push(producto);
+        this.total += producto.getPrecio();
+    }
+    mostrarTotal() {
+        return `Total del carrito: $${this.total}`;
+    }
 }
-
 class MetodoDePago {
+    constructor(tipo, numero, vencimiento) {
+        this.tipo = tipo;
+        this.numero = numero;
+        this.vencimiento = vencimiento;
+    }
+    getTipo() {
+        return this.tipo;
+    }
+    setTipo(tipo) {
+        this.tipo = tipo;
+    }
+    getNumero() {
+        return this.numero;
+    }
+    setNumero(numero) {
+        this.numero = numero;
+    }
+    getVencimiento() {
+        return this.vencimiento;
+    }
+    setVencimiento(vencimiento) {
+        this.vencimiento = vencimiento;
+    }
+    procesarPago(monto) {
+        return `Procesando pago de $${monto} con ${this.tipo}`;
+    }
 }
-
-*/
+class Pedido {
+    constructor(carrito, metodoDePago) {
+        this.carrito = carrito;
+        this.metodoDePago = metodoDePago;
+        this.estado = "Pendiente";
+    }
+    getCarrito() {
+        return this.carrito;
+    }
+    getMetodoDePago() {
+        return this.metodoDePago;
+    }
+    getEstado() {
+        return this.estado;
+    }
+    setEstado(estado) {
+        this.estado = estado;
+    }
+    procesarPedido() {
+        if (this.carrito.getTotal() > 0) {
+            this.estado = "Procesado";
+            return `Pedido procesado. ${this.metodoDePago.procesarPago(this.carrito.getTotal())}`;
+        }
+        else {
+            return "El carrito está vacío. No se puede procesar el pedido.";
+        }
+    }
+}
+let producto1 = new Producto("Laptop", 1500, 5);
+let producto2 = new Producto("Mouse", 20, 50);
+console.log(producto1.mostrarProducto());
+console.log(producto2.mostrarProducto());
+let usuario1 = new Usuario("Juan", "Pérez", "Gómez", 30, "juan.perez@example.com", "Cliente");
+console.log(usuario1.mostrarUsuario());
+let carrito1 = new Carrito();
+carrito1.agregarProducto(producto1);
+carrito1.agregarProducto(producto2);
+console.log(carrito1.mostrarTotal());
+let metodoDePago1 = new MetodoDePago("Tarjeta de Crédito", "123456789", "12/25");
+let pedido1 = new Pedido(carrito1, metodoDePago1);
+console.log(pedido1.procesarPedido());
 //Herencia
 class Animal {
     constructor(nombre) {
