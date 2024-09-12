@@ -40,3 +40,34 @@ var Volumen;
 })(Volumen || (Volumen = {}));
 let volumen = Volumen.medio;
 console.log('volumen:', volumen);
+//Reto
+/*
+
+Denifir una clase ENUM para su proyecto final
+Tienda en linea
+
+Estatus del pedido
+Capturada
+Procesada
+Pagada
+Enviada
+Entregada
+
+*/
+var EstatusPedido;
+(function (EstatusPedido) {
+    EstatusPedido["Capturada"] = "Capturada";
+    EstatusPedido["Procesada"] = "Procesada";
+    EstatusPedido["Pagada"] = "Pagada";
+    EstatusPedido["Enviada"] = "Enviada";
+    EstatusPedido["Entregada"] = "Entregada";
+})(EstatusPedido || (EstatusPedido = {}));
+let estatusActual;
+estatusActual = EstatusPedido.Capturada;
+console.log('Estatus actual del pedido:', estatusActual);
+estatusActual = EstatusPedido.Pagada;
+console.log('Estatus actualizado del pedido:', estatusActual);
+estatusActual = EstatusPedido.Enviada;
+console.log('Estatus actualizado del pedido:', estatusActual);
+estatusActual = EstatusPedido.Entregada;
+console.log('Estatus final del pedido:', estatusActual);

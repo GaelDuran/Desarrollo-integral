@@ -59,6 +59,27 @@ Entregada
 
 */
 
+enum EstatusPedido {
+    Capturada = "Capturada",
+    Procesada = "Procesada",
+    Pagada = "Pagada",
+    Enviada = "Enviada",
+    Entregada = "Entregada"
+}
+
+let estatusActual: EstatusPedido;
+
+estatusActual = EstatusPedido.Capturada;
+console.log('Estatus actual del pedido:', estatusActual);
+
+estatusActual = EstatusPedido.Pagada;
+console.log('Estatus actualizado del pedido:', estatusActual);
+
+estatusActual = EstatusPedido.Enviada;
+console.log('Estatus actualizado del pedido:', estatusActual);
+
+estatusActual = EstatusPedido.Entregada;
+console.log('Estatus final del pedido:', estatusActual); 
 
 
 
