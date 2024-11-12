@@ -23,4 +23,5 @@ app.listen(3000, () => {
 
 
 app.use(productosRoutes);
+app.use(categoriaRoutes);
 app.use(usuariosRoutes);
